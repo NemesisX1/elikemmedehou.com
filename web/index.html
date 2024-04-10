@@ -59,7 +59,8 @@
   <meta property="og:title" content="Elikem Medehou - Writer, Product Builder and Software Engineer" />
   <meta property="og:description"
     content="Elikem Medehou is a seasoned professional in the dynamic intersection of writing, software engineering, product building and managerial leadership." />
-  <meta property="og:image" content="https://res.cloudinary.com/nemesisx1/image/upload/v1712786290/hxxz0yz4heujnpsq707n.png" />
+  <meta property="og:image"
+    content="https://res.cloudinary.com/nemesisx1/image/upload/v1712786290/hxxz0yz4heujnpsq707n.png" />
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
@@ -67,7 +68,8 @@
   <meta property="twitter:title" content="Elikem Medehou - Writer, Product Builder and Software Engineer" />
   <meta property="twitter:description"
     content="Elikem Medehou is a seasoned professional in the dynamic intersection of writing, software engineering, product building and managerial leadership." />
-  <meta property="twitter:image" content="https://res.cloudinary.com/nemesisx1/image/upload/v1712786290/hxxz0yz4heujnpsq707n.png" />
+  <meta property="twitter:image"
+    content="https://res.cloudinary.com/nemesisx1/image/upload/v1712786290/hxxz0yz4heujnpsq707n.png" />
 
 
   <script>
@@ -76,10 +78,60 @@
   </script>
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
+
+  <style>
+    body {
+      color: white;
+    }
+    .loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+
+    .loader {
+      border: 6px solid #f3f3f3;
+      border-radius: 50%;
+      border-top: 16px solid #033D68;
+      width: 100px;
+      height: 100px;
+      -webkit-animation: spin 2s linear infinite;
+      animation: spin 2s linear infinite;
+    }
+
+    @-webkit-keyframes spin {
+      0% {
+        -webkit-transform: rotate(0deg);
+      }
+
+      100% {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
 </head>
 
 <body>
-  <script>
+  <div class="loading">
+    <div class="loader"></div>
+  </div>
+  <!-- <script>
     if (bot) {
       window.flutterWebRenderer = "html";
     }
@@ -98,7 +150,8 @@
         }
       });
     });
-  </script>
+  </script> -->
+
 </body>
 
 </html>
