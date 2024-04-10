@@ -1,9 +1,39 @@
-import 'package:elikemmedehou/home/home.dart';
+import 'package:elikemmedehou/pages/home/home.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_web_plugins/url_strategy.dart';
+import 'package:go_router/go_router.dart';
+import 'package:meta_seo/meta_seo.dart';
+import 'package:seo/seo.dart';
 
 void main() {
+  usePathUrlStrategy();
+
+  if (kIsWeb) {
+    MetaSEO().config();
+  }
+
   runApp(const MyApp());
 }
+
+final GoRouter _router = GoRouter(
+  routes: <RouteBase>[
+    GoRoute(
+      path: '/',
+      builder: (BuildContext context, GoRouterState state) {
+        return HomePage();
+      },
+      // routes: <RouteBase>[
+      //   GoRoute(
+      //     path: 'details',
+      //     builder: (BuildContext context, GoRouterState state) {
+      //       return const DetailsScreen();
+      //     },
+      //   ),
+      // ],
+    ),
+  ],
+);
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -11,59 +41,35 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Elikem Medehou',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-        fontFamily: 'Family',
-      ),
-      home: HomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({
-    super.key,
-  });
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+    return SeoController(
+      tree: WidgetTree(context: context),
+      child: MaterialApp.router(
+        routerConfig: _router,
+        debugShowCheckedModeBanner: false,
+        title: 'Elikem Medehou',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+          fontFamily: 'Family',
+          textButtonTheme: TextButtonThemeData(
+            style: TextButton.styleFrom(
+              padding: EdgeInsets.zero,
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+          ),
+          textTheme: const TextTheme(
+            bodySmall: TextStyle(
+              color: Colors.white,
             ),
-          ],
+            bodyLarge: TextStyle(
+              color: Colors.white,
+            ),
+            bodyMedium: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+            ),
+          ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
