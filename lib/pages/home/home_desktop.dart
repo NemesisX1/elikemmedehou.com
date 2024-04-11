@@ -176,7 +176,7 @@ class _HomeDesktopState extends State<HomeDesktop> {
                             child: TextButton(
                               onPressed: () {
                                 launchUrlString(
-                                    'ttps://twitter.com/elikemmedehou');
+                                    'https://twitter.com/elikemmedehou');
                               },
                               child: const Text(
                                 'twitter',
