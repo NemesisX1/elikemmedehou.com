@@ -221,10 +221,14 @@ class _HomeMobileState extends State<HomeMobile> {
               const Divider(),
               Container(
                 width: MediaQuery.of(context).size.width,
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: const Wrap(
-                  direction: Axis.vertical,
-                  spacing: 5,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                ),
+                // constraints: BoxConstraints(
+                //   maxWidth: MediaQuery.of(context).size.width * 0.7,
+                // ),
+                child: const Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SelectableText(
                       'With ✨ from Elikem',
