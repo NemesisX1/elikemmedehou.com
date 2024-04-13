@@ -115,6 +115,24 @@ class _HomeMobileState extends State<HomeMobile> {
                         spacing: 20,
                         children: [
                           Seo.link(
+                            href: 'https://blog.elikemmedehou.com',
+                            anchor: '',
+                            child: TextButton(
+                              onPressed: () {
+                                launchUrlString(
+                                    'https://blog.elikemmedehou.com');
+                              },
+                              child: const Text(
+                                'La Revue Dart et Flutter',
+                                style: TextStyle(
+                                  decoration: TextDecoration.underline,
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Seo.link(
                             href:
                                 'https://elikemmedehou.notion.site/Elikem-s-Press-Kit-adfb8fd8b314417e847291f75fdeb83d?pvs=4',
                             anchor: '',
