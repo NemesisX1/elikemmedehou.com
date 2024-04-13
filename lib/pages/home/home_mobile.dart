@@ -178,7 +178,7 @@ class _HomeMobileState extends State<HomeMobile> {
                             child: TextButton(
                               onPressed: () {
                                 launchUrlString(
-                                  'ttps://twitter.com/elikemmedehou',
+                                  'https://twitter.com/elikemmedehou',
                                 );
                               },
                               child: const Text(
